@@ -8,3 +8,12 @@ Version: 0.1
 Author URI: https://about.me/jeanmanzo
 */
 
+defined( 'ABSPATH' ) or die( 'You can not access here.' );
+
+/**
+ * Load initializer
+ * 
+ */
+require_once __DIR__.'/src/init.php';
+
+JFDC_Bootstrapper::Init();
