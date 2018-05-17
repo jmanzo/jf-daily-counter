@@ -19,6 +19,7 @@ class JFDC_Bootstrapper{
         self::register_shortcodes();
         self::register_assets();
         self::lang_setup();
+        self::register_plugin_options();
 
     }
 
@@ -39,6 +40,12 @@ class JFDC_Bootstrapper{
 
     }
 
+    private static function register_plugin_options() {
+
+        add_action( 'cmb2_admin_init', array( __CLASS__, 'get_plugin_options' ) );
+
+    }
+
     public static function lang_setup(){
 
     	load_theme_textdomain( JFDCTEXTDOMAIN, get_template_directory() . '/languages' );
@@ -49,6 +56,33 @@ class JFDC_Bootstrapper{
 
         require_once JFDCPLUGINDIRECTORY.'/src/shortcode.php';
 
+    }
+
+    public static function get_plugin_options() {
+        /**
+         * Registers options page menu item and form.
+         */
+        $cmb_options = new_cmb2_box( array(
+            'id'           => 'jfdc_option_metabox',
+            'title'        => esc_html__( 'JF Daily Counter', JFDCTEXTDOMAIN ),
+            'object_types' => array( 'options-page' ),
+            'option_key'      => 'jfdc_options',
+        ) );
+        
+        $cmb_options->add_field( array(
+            'name' => __( 'Quantity Counter', JFDCTEXTDOMAIN ),
+            'desc' => __( 'Quantity to show in frontend. Example: 100, 1000, 100000 or whatever you want.', JFDCTEXTDOMAIN ),
+            'id'   => 'jdfc_quantity',
+            'type' => 'text',
+            'default' => '100000',
+        ) );
+        $cmb_options->add_field( array(
+            'name' => 'Date Picker from you want count',
+            'id'   => 'jfdc_date_counter',
+            'type' => 'text_date',
+            'date_format' => 'Y-m-d',
+            'default' => '2018-05-01',
+        ) );
     }
 
 }

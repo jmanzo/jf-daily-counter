@@ -1,12 +1,15 @@
 <div class="jf_daily_counter_shortcode">
-	<?php 
+	<?php
+
+		$fromDate = isset(get_option( 'jfdc_options' )['jfdc_date_counter']) ? get_option( 'jfdc_options' )['jfdc_date_counter'] : '2018-01-01';
+		$defaultQuantity = isset(get_option( 'jfdc_options' )['jdfc_quantity']) ? get_option( 'jfdc_options' )['jdfc_quantity'] : '1000';
 
 		$now = time(); // today
-		$your_date = strtotime("2018-05-16");
+		$your_date = strtotime( $fromDate );
 		$datediff = $now - $your_date;
 		$addition = round($datediff / (60 * 60 * 24) - 1);
 
-		$arrayAdditions = (string)100000 + $addition;
+		$arrayAdditions = (string)$defaultQuantity + $addition;
 		$arrayAdditions = str_split($arrayAdditions);
 
 	?>
