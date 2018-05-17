@@ -9,7 +9,8 @@ defined( 'ABSPATH' ) or die( 'You can not access here.' );
 
 // Constants
 define('JFDCTEXTDOMAIN', 'jf-daily-counter');
-define('JFDCPLUGINDIRECTORY', __DIR__ . '/../');
+define('JFDCPLUGINDIRECTORY', __DIR__.'/../');
+define('JFDCPLUGINDIRURL', plugins_url('', realpath(__DIR__.'/../jf-daily-counter.php')));
 
 class JFDC_Bootstrapper{
 
@@ -23,9 +24,9 @@ class JFDC_Bootstrapper{
 
     public static function register_assets(){
 
-        wp_register_script('JFDC_functions', JFDCPLUGINDIRECTORY.'/assets/js/functions.js', array('jquery'));
+        wp_register_script('JFDC_functions', JFDCPLUGINDIRURL.'/assets/js/functions.js', array('jquery'));
 
-        wp_register_style('JFDC_styles', JFDCPLUGINDIRECTORY.'/assets/css/jf-daily-counter.css');
+        wp_register_style('JFDC_styles', JFDCPLUGINDIRURL . '/assets/css/jf-daily-counter.css');
 
         wp_enqueue_style('JFDC_styles');
         wp_enqueue_script('JFDC_functions');

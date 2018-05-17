@@ -1,0 +1,17 @@
+/**
+*	JF DAILY COUNTER STYLES
+*/
+
+.jf_daily_counter_shortcode {
+	/**/
+}
+
+.jf_daily_counter_shortcode > ul {
+	list-style: none;
+    display: flex;
+    flex-direction: row;
+    max-width: 100%;
+    flex-wrap: nowrap;
+    width: 150px;
+    justify-content: space-around;
+}
