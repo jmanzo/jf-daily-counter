@@ -1,9 +1,9 @@
 <?php
 /**
-Plugin Name: Jayfencing Daily Counter
-Plugin URI: https://jayfencing.com/
-Description: Daily counter for jayfencing site - Use [jf_daily_counter] shortcode whatever you want to show the counter.
-Author: Alex Leuchner - Jean Manzo
+Plugin Name: JF Daily Counter
+Plugin URI: https://about.me/jeanmanzo
+Description: WP Plugin that shows a daily counter with a shortcode. Simple and fast, just put your shortcode where you want and replace the styles with yours.
+Author: Jean Manzo
 Version: 0.1
 Author URI: https://about.me/jeanmanzo
 */
